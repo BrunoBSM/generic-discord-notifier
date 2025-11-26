@@ -1,0 +1,9 @@
+# Error Webhook Configuration
+# This webhook will receive notifications when the main notification fails
+# 
+# To use:
+# 1. Copy this file to error_webhook.yaml
+# 2. Replace the URL below with your personal Discord server webhook URL
+
+webhook_url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN"
+

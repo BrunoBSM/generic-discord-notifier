@@ -1,0 +1,31 @@
+# Example Discord Notification Configuration
+# This file demonstrates the format for notification configuration files
+
+# Discord webhook URL where the notification will be sent
+webhook_url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN"
+
+# Message content - supports multi-line text using YAML literal block scalar (|)
+# The | character preserves newlines and trailing newline
+# Date placeholders: {date} (DD/MM/YYYY), {date:DD/MM}, {date:DD/MM/YYYY}
+message: |
+  Good morning! 🌅
+  
+  Today's date is {date} (or {date:DD/MM} for short format).
+  
+  This is a multi-line message example.
+  Each line will be preserved as written.
+  
+  You can include:
+  - Bullet points
+  - Multiple paragraphs
+  - Special characters: @#$%^&*()
+  - Date placeholders: {date} and {date:DD/MM}
+  
+  Have a great day on {date:DD/MM/YYYY}!
+
+# Alternative: Using folded block scalar (>) for long single-line messages
+# message: >
+#   This is a long message that will be folded into a single line
+#   with spaces replacing newlines. Useful for long text that you
+#   want to format nicely in the config file but send as one line.
+

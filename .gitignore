@@ -1,0 +1,23 @@
+# Local webhook configurations (contains sensitive webhook URLs)
+error_webhook.yaml
+
+# Personal notification configs (contains sensitive webhook URLs)
+configs/*.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
