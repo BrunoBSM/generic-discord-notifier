@@ -99,7 +99,7 @@ This repository is configured to keep your webhook URLs private:
 
 - **Template files** (safe to commit):
   - `error_webhook.yaml.example` - Template for error webhook
-  - `configs/example_notification.yaml` - Example notification config
+  - `configs/example_notification.yaml.example` - Example notification config
 
 **To set up locally:**
 1. Copy `error_webhook.yaml.example` to `error_webhook.yaml` and add your webhook URL
