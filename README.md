@@ -47,7 +47,7 @@ crontab -e
 Example cron entry:
 ```cron
 # Send notification every day at 9:00 AM
-0 9 * * * /home/bruno/Projects/generic-discord-notifier/venv/bin/python3 /home/bruno/Projects/generic-discord-notifier/discord_notifier.py /home/bruno/Projects/generic-discord-notifier/configs/morning.yaml
+0 9 * * * /home/Projects/generic-discord-notifier/venv/bin/python3 /home/Projects/generic-discord-notifier/discord_notifier.py /home/Projects/generic-discord-notifier/configs/morning.yaml
 ```
 
 **Important:** Use absolute paths in cron jobs.
