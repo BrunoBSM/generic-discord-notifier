@@ -26,12 +26,13 @@ class CronJobInfo:
 SCHEDULE_PRESETS = {
     "daily_9am": {"cron": "0 9 * * *", "label": "Daily at 9:00 AM"},
     "daily_8am": {"cron": "0 8 * * *", "label": "Daily at 8:00 AM"},
-    "daily_10am": {"cron": "0 10 * * *", "label": "Daily at 10:00 AM"},
     "daily_noon": {"cron": "0 12 * * *", "label": "Daily at 12:00 PM"},
     "daily_6pm": {"cron": "0 18 * * *", "label": "Daily at 6:00 PM"},
     "weekdays_9am": {"cron": "0 9 * * 1-5", "label": "Weekdays at 9:00 AM"},
     "weekly_monday_9am": {"cron": "0 9 * * 1", "label": "Mondays at 9:00 AM"},
     "weekly_friday_5pm": {"cron": "0 17 * * 5", "label": "Fridays at 5:00 PM"},
+    "mon_wed_fri_9am": {"cron": "0 9 * * 1,3,5", "label": "Mon, Wed, Fri at 9:00 AM"},
+    "tue_thu_9am": {"cron": "0 9 * * 2,4", "label": "Tue & Thu at 9:00 AM"},
 }
 
 
