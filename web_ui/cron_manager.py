@@ -147,11 +147,22 @@ class CronManager:
                 return f"Weekends at {time_str}"
             else:
                 days = {
-                    "0": "Sundays", "1": "Mondays", "2": "Tuesdays",
-                    "3": "Wednesdays", "4": "Thursdays", "5": "Fridays", "6": "Saturdays"
+                    "0": "Sun", "1": "Mon", "2": "Tue",
+                    "3": "Wed", "4": "Thu", "5": "Fri", "6": "Sat"
                 }
+                # Handle single day
                 if dow in days:
-                    return f"{days[dow]} at {time_str}"
+                    full_days = {
+                        "0": "Sundays", "1": "Mondays", "2": "Tuesdays",
+                        "3": "Wednesdays", "4": "Thursdays", "5": "Fridays", "6": "Saturdays"
+                    }
+                    return f"{full_days[dow]} at {time_str}"
+                # Handle comma-separated days (e.g., "2,5" for Tue, Fri)
+                if "," in dow:
+                    day_nums = dow.split(",")
+                    day_names = [days.get(d.strip(), d) for d in day_nums]
+                    if all(d in days.values() for d in day_names):
+                        return f"{', '.join(day_names)} at {time_str}"
         
         return f"At {time_str} ({cron_expr})"
 
