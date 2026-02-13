@@ -129,6 +129,8 @@ def edit_notification(name: str):
         
         elif action == "enable":
             schedule = request.form.get("schedule", "0 9 * * *")
+            if schedule == "custom":
+                schedule = request.form.get("custom_schedule", "0 9 * * *")
             command = config_manager.get_notifier_command(name)
             
             if cron_manager.enable_notification(name, command, schedule):
@@ -146,6 +148,8 @@ def edit_notification(name: str):
         
         elif action == "update_schedule":
             schedule = request.form.get("schedule", "0 9 * * *")
+            if schedule == "custom":
+                schedule = request.form.get("custom_schedule", "0 9 * * *")
             command = config_manager.get_notifier_command(name)
             
             if cron_manager.enable_notification(name, command, schedule):
