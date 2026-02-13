@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Settings - Discord Notifier{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Settings</h1>
+    <p class="subtitle">Configure global settings for the notifier</p>
+</div>
+
+<div class="settings-layout">
+    <div class="card">
+        <h2>Error Webhook</h2>
+        <p class="text-secondary mb-2">
+            This webhook receives notifications when a scheduled notification fails to send.
+            Useful for monitoring your notification system.
+        </p>
+        
+        <form method="post">
+            <div class="form-group">
+                <label for="webhook_url">Error Webhook URL</label>
+                <input type="url" id="webhook_url" name="webhook_url" 
+                       value="{{ error_webhook }}"
+                       placeholder="https://discord.com/api/webhooks/...">
+                <p class="hint">Leave empty to disable error notifications.</p>
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" name="action" value="save" class="btn btn-primary">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/>
+                    </svg>
+                    Save
+                </button>
+                {% if error_webhook %}
+                    <button type="submit" name="action" value="test" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"/>
+                        </svg>
+                        Send Test
+                    </button>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>About</h2>
+        <div class="about-content">
+            <p class="text-secondary">
+                Discord Notifier is a simple notification system that sends scheduled messages
+                to Discord channels via webhooks. It's designed to run locally and uses cron
+                for scheduling.
+            </p>
+            
+            <div class="info-grid mt-2">
+                <div class="info-item">
+                    <span class="info-label">Config Directory</span>
+                    <code>configs/</code>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Date Placeholders</span>
+                    <code>{date}</code>, <code>{date:DD/MM}</code>, <code>{date:DD/MM/YYYY}</code>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .settings-layout {
+        max-width: 700px;
+    }
+
+    .settings-layout .card {
+        margin-bottom: 1rem;
+    }
+
+    .info-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .info-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .info-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    code {
+        background: var(--bg-tertiary);
+        padding: 0.125rem 0.375rem;
+        border-radius: 4px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85em;
+    }
+</style>
+{% endblock %}
+
